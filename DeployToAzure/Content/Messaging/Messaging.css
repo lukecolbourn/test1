@@ -1,0 +1,14 @@
+﻿ul#discussion{
+    padding:18px 0 0 18px;
+}
+ul#discussion > li{
+    list-style-type: none;
+}
+ul#discussion > li.highlight{
+    color: blue;
+}
+input#message{
+    max-width: 100%;
+    width: 90%;
+    margin: 0 0 5px 0;
+}

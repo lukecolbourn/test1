@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Messaging.Message>
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Partial("jumbotron", new JumbotronModel("Talk", "This is the talk page where you can chat woth other people."))
+
+<div class="container">
+    @if (this.User.Identity.IsAuthenticated)
+    {
+        <input type="text" id="message" />
+        <input type="button" id="sendmessage" value="Send" />
+        <input type="hidden" id="displayname" value="@this.User.Identity.Name"/>
+    }
+    else
+    {
+        <p>Please login to talk.</p>
+    }
+    <div>
+        <ul id="discussion">
+            @foreach(var message in Model)
+            {
+                <li><strong>@message.Name</strong>:&nbsp;&nbsp;@message.MessageText</li>
+            }
+        </ul>
+    </div>
+</div>
+<link href="~/Content/Messaging/Messaging.css" rel="stylesheet" />
+<script src="~/Scripts/Messaging/Talk.js"></script>
+
